@@ -3,6 +3,8 @@ jenkins:
   pkgs:
     - jenkins
   deb_apt_source: /etc/apt/sources.list.d/jenkins-ci.list
+  repo:
+    key_name: jenkins.io-2026.key
   netcat_pkg: netcat-openbsd
   netcat_flag: -z
   user: jenkins

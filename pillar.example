@@ -16,3 +16,5 @@ jenkins:
         - greenballs
     pkgs:
       - jenkins
+    repo:
+      key_name: jenkins.io-2026.key

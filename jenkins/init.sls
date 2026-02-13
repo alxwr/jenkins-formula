@@ -43,12 +43,13 @@ jenkins:
     - humanname: Jenkins upstream package repository
     {% if grains['os_family'] == 'RedHat' %}
     - baseurl: https://pkg.jenkins.io/redhat{{ repo_suffix }}
-    - gpgkey: https://pkg.jenkins.io/redhat{{ repo_suffix }}/jenkins.io-2023.key
+    - gpgkey: https://pkg.jenkins.io/redhat{{ repo_suffix }}/{{ jenkins.repo.key_name }}
     {% elif grains['os_family'] == 'Debian' %}
     - file: {{jenkins.deb_apt_source}}
     - name: deb [signed-by=/usr/share/keyrings/jenkins-keyring.gpg] https://pkg.jenkins.io/debian{{ repo_suffix }} binary/
-    - key_url: https://pkg.jenkins.io/debian{{ repo_suffix }}/jenkins.io-2023.key
+    - key_url: https://pkg.jenkins.io/debian{{ repo_suffix }}/{{ jenkins.repo.key_name }}
     - aptkey: False
+    - clean_file: True
     {% endif %}
     - require_in:
       - pkg: jenkins
